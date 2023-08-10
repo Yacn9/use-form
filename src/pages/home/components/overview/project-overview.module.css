@@ -1,0 +1,10 @@
+.project_overview {
+  display: flex;
+  justify-content: space-between;
+}
+
+.structure {
+  background-color: #202e4b;
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+}

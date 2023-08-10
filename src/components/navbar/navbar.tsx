@@ -18,7 +18,7 @@ const Navbar = () => {
         {map(NAV_ITEMS, (nav) => (
           <Link
             key={nav.id}
-            to={`#${kebabCase(nav.name)}`}
+            to={`/home#${kebabCase(nav.name)}`}
             className={style.nav_item}
           >
             {nav.name}
