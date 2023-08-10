@@ -1,7 +1,7 @@
 interface IStructure {
     name: string;
     description: string;
-    class: "tsx" | "folder" | "json" | "";
+    class: "tsx" | "folder" | "json" | "css" | "";
     type: "directory" | "file";
     children?: IStructure[];
 }

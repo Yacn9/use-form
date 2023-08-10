@@ -9,12 +9,12 @@
   padding: 1.5rem 2rem;
   border-radius: 1.5rem;
   box-shadow: 0 2px 4px rgba(100, 99, 99, 0.1);
-  width: 25%;
+  width: 30%;
 }
 
 .list_container {
   list-style: none;
-  padding-left: 20px;
+  padding-left: 0.75rem;
 }
 
 .file_name {
@@ -51,6 +51,10 @@
   content: "📦 ";
   color: #e67e22;
 }
+.css::before {
+  content: "🎨 ";
+  color: #3498db;
+}
 
 .description {
   background-color: #1a1b26;
@@ -58,5 +62,5 @@
   font-size: 1.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 2px 4px rgba(100, 99, 99, 0.1);
-  width: 75%;
+  width: 70%;
 }

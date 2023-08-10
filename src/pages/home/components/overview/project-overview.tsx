@@ -74,6 +74,13 @@ const ProjectOverview = () => {
                     "A TypeScript/React component file that is used to create specific UI elements or views. The .tsx extension indicates that it contains JSX syntax.",
                 },
                 {
+                  name: "[file-name].module.css",
+                  type: "file",
+                  class: "css",
+                  description:
+                    "A CSS module file associated with the specific component. CSS modules allow you to write CSS styles in a way that scopes the styles to a particular component, preventing unintended style collisions. This makes it easier to manage and style individual components without affecting others. The .module.css extension indicates the use of CSS modules.",
+                },
+                {
                   name: "index.ts",
                   type: "file",
                   class: "",
@@ -126,6 +133,13 @@ const ProjectOverview = () => {
                   class: "tsx",
                   description:
                     " This TypeScript/React component file represents a specific page of your web application. The name [file-name].tsx is a placeholder for the actual name of the file, which should reflect the purpose or content of the page. The .tsx extension indicates that the file contains JSX syntax, allowing you to define the structure and layout of the page using React components. Each page component usually corresponds to a specific URL route and is responsible for rendering the content and functionality associated with that route. It can include various UI elements, components, and logic tailored to the specific purpose of the page. By organizing pages as individual components, your application can maintain a modular and structured architecture, making it easier to manage and scale",
+                },
+                {
+                  name: "[file-name].module.css",
+                  type: "file",
+                  class: "css",
+                  description:
+                    "A CSS module file associated with the specific page component. CSS modules allow you to write CSS styles in a way that scopes the styles to a particular component, preventing unintended style collisions. This makes it easier to manage and style individual components without affecting others. The .module.css extension indicates the use of CSS modules.",
                 },
                 {
                   name: "index.ts",

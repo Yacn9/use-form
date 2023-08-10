@@ -24,6 +24,12 @@ const Navbar = () => {
             {nav.name}
           </Link>
         ))}
+        <a
+          href="https://github.com/Yacn9/snapp-use-form"
+          className={style.nav_item}
+        >
+          Github
+        </a>
       </nav>
     </header>
   );
