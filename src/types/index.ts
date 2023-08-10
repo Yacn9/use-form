@@ -1,1 +1,1 @@
-export * from './use-form-type'
+export * from './use-form.type'
