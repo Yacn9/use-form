@@ -41,6 +41,7 @@ const Form = (props: IFormProps) => {
 
   useEffect(() => {
     onReset();
+    getData({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isControlled]);
 

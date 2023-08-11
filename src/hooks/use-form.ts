@@ -29,7 +29,7 @@ const useForm = (props: IHookForm) => {
         setErrors(newErrors);
     };
 
-    const handleSubmit = (onSubmit: (values: Record<string, any>) => void) => {
+    const handleSubmit = (onSubmit: (values: TFormValues) => void) => {
         return (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
             const refVal: TFormValues = {};
