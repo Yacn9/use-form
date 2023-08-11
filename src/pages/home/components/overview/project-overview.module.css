@@ -1,0 +1,66 @@
+.project_overview {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.structure {
+  background-color: #1a1b26;
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 4px rgba(100, 99, 99, 0.1);
+  width: 30%;
+}
+
+.list_container {
+  list-style: none;
+  padding-left: 0.75rem;
+}
+
+.file_name {
+  cursor: pointer;
+}
+
+.file_name:hover,
+.file_name:active {
+  color: skyblue;
+}
+
+.list {
+  margin-bottom: 5px;
+}
+
+/* Icons */
+.list::before {
+  content: "📄 ";
+  color: #2e86de;
+  margin-right: 5px;
+}
+.folder::before {
+  content: "📁 ";
+  color: #e74c3c;
+  margin-right: 5px;
+}
+
+.tsx::before {
+  content: "⚛️ ";
+  color: #f0643c;
+}
+
+.json::before {
+  content: "📦 ";
+  color: #e67e22;
+}
+.css::before {
+  content: "🎨 ";
+  color: #3498db;
+}
+
+.description {
+  background-color: #1a1b26;
+  padding: 3% 4%;
+  font-size: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 4px rgba(100, 99, 99, 0.1);
+  width: 70%;
+}

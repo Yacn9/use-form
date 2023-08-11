@@ -1,0 +1,36 @@
+.technical_insights {
+  margin: 2rem 0;
+  background-color: #1a1b26;
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 4px rgba(100, 99, 99, 0.1);
+}
+
+.heading2 {
+  font-size: 24px;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid gainsboro;
+}
+
+.heading3 {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.li_container {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.li {
+  font-size: 16px;
+  line-height: 1.5;
+}
