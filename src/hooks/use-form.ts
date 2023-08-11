@@ -25,8 +25,8 @@ const useForm = (props: IHookForm) => {
     const handleChange = (name: string, value: any) => {
         const newValues = { ...values, [name]: value };
         setValues(newValues);
-        const newErrors = validate(newValues);
-        setErrors(newErrors);
+        const newError = validate({ [name]: value });
+        setErrors({ ...errors, newError });
     };
 
     const handleSubmit = (onSubmit: (values: TFormValues) => void) => {
