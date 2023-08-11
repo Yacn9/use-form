@@ -59,6 +59,7 @@
 
 .nav_item {
   position: relative;
+  cursor: pointer;
   color: #fff;
   font-size: 1rem;
   font-weight: 500;

@@ -1,9 +1,13 @@
 import React from "react";
 import style from "./navbar.module.css";
 import { map, kebabCase } from "lodash";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useScroll } from "hooks";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const scroll = useScroll();
+
   const NAV_ITEMS = [
     { id: 1, name: "Project Overview" },
     { id: 2, name: "Technical Insights" },
@@ -16,13 +20,16 @@ const Navbar = () => {
           Home
         </Link>
         {map(NAV_ITEMS, (nav) => (
-          <Link
+          <span
             key={nav.id}
-            to={`/home#${kebabCase(nav.name)}`}
+            onClick={() => {
+              navigate(`/home#${kebabCase(nav.name)}`);
+              scroll(kebabCase(nav.name));
+            }}
             className={style.nav_item}
           >
             {nav.name}
-          </Link>
+          </span>
         ))}
         <a
           href="https://github.com/Yacn9/snapp-use-form"
