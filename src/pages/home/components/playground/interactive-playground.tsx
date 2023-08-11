@@ -31,7 +31,7 @@ const InteractivePlayground = () => {
             <pre className={style.terminal_ext}>
               <span className={style.user}>yacn9@ubuntu:</span>
               <span className={style.directory}>~</span>
-              <span className={style.prompt}>$</span> ...
+              <span className={style.prompt}>$</span> form submitted
               <br />
               data: {"\u007B"}
               <p className={style.json_output}>
