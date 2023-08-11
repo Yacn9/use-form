@@ -1,15 +1,16 @@
 import { useRef, useState } from "react";
 import { TFormValues, IHookForm } from "types";
-import yup from 'yup';
+import * as yup from 'yup';
 import { keyBy, isEmpty } from 'lodash';
 
-const useForm = (options: IHookForm, initialValues?: TFormValues) => {
-    const [values, setValues] = useState<TFormValues | undefined>(initialValues);
-    const [errors, setErrors] = useState<TFormValues>();
+const useForm = (props: IHookForm) => {
+    const { initialValues, validationSchema } = props
+    const [values, setValues] = useState<TFormValues>(initialValues ?? {});
+    const [errors, setErrors] = useState<TFormValues>({});
     const refs = useRef<{ [key: string]: HTMLInputElement }>({});
 
     const validate = (values: TFormValues) => {
-        const schema = options.validationSchema || yup.object().shape({});
+        const schema = validationSchema || yup.object().shape({});
         try {
             schema.validateSync(values, { abortEarly: false });
             return {};
@@ -22,38 +23,43 @@ const useForm = (options: IHookForm, initialValues?: TFormValues) => {
     };
 
     const handleChange = (name: string, value: any) => {
-        if (refs.current[name]) {
-            const newValues = { ...values, [name]: refs.current[name].value };
-            setValues(newValues);
-            const newErrors = validate(newValues);
-            setErrors(newErrors);
-        } else {
-            const newValues = { ...values, [name]: value };
-            setValues(newValues);
-        }
+        const newValues = { ...values, [name]: value };
+        setValues(newValues);
+        const newErrors = validate(newValues);
+        setErrors(newErrors);
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        if (values) {
-            const newErrors = validate(values);
+    const handleSubmit = (onSubmit: (values: Record<string, any>) => void) => {
+        return (event: React.FormEvent<HTMLFormElement>) => {
+            event.preventDefault();
+            const refVal: TFormValues = {};
+            for (const key in refs.current) {
+                const value = refs.current[key].value;
+                if (value) {
+                    refVal[key] = value;
+                }
+            }
+
+            const data = Object.keys(refVal).length === 0 ? values : refVal;
+            const newErrors = validate(data);
             setErrors(newErrors);
             if (isEmpty(newErrors)) {
-                options.onSubmit(values, refs.current);
+                onSubmit(data);
             }
-        }
+        };
     };
 
     const register = (name: string) => (ref: HTMLInputElement) => {
-        refs.current[name] = ref;
-        if (ref && !ref.value) {
-            const value = initialValues ? initialValues[name] : {};
-            const newValues = { ...values, [name]: value };
-            setValues(newValues);
+        if (ref) {
+            refs.current[name] = ref;
         }
     };
+    const onReset = () => {
+        setValues({})
+        setErrors({})
+    }
 
-    return { values, refs, handleChange, handleSubmit, errors, register };
+    return { values, refs, handleChange, handleSubmit, errors, register, onReset };
 };
 
 
